@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categorie extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'name',
+    ];
+    public function newsModel() {
+        return $this->HasMany(News::class, 'category_id','id');
+    }
 }

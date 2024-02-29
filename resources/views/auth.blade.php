@@ -9,7 +9,7 @@
      </div>
      <div class="container">
          <h1 class="text-center text-danger" style="color:#263248;">Войти</h1>
-         <form method="POST" action="/auth_valid" class="form_vhod">
+         <form method="POST" action="/auth_valid" class="form_vhod w-50 block-center">
              @csrf
              <div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Электронная почта </label>
@@ -30,7 +30,7 @@
           @enderror
                  </p>
              </div>
-             <button type="submit" class="btn btn-danger block-center">Войти</button>
+             <button type="submit" class="btn btn-danger block-center w-50">Войти</button>
          </form>
      </div>
 

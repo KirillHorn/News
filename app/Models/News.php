@@ -8,4 +8,33 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'title',
+        'content',
+        'category_id',
+        'publish_date',
+        'is_blocked'
+    ];
+
+    public function categorieNews() {
+        return $this->belongsTo(Categorie::class, 'category_id');
+    }
+    public function likePost() {
+        return $this->hasMany(Like::class, 'news_id','id');
+    }
+    public function likesCount()
+    {
+        return $this->likePost->count();
+    }
+    public static function getVideosOrderByLikes()
+    {
+        return self::withCount('likePost')
+            ->orderByDesc('likesCount_count')
+            ->get();
+    }
+
+    public function commentPost() {
+        return $this->hasMany(Comment::class, 'news_id','id');
+    }
 }

@@ -14,3 +14,15 @@
     display: block;
     margin: 0 auto;
 }
+.personal-settings {
+    width:20%;
+    height:20%;
+}
+.comment_container {
+    background-color: aliceblue;
+    margin-top: 20px;
+    width: 1300px;
+}
+.comment_container p {
+    margin-left: 50px;
+}

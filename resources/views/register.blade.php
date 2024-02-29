@@ -7,7 +7,7 @@
     </div>
     @endif
     <h1 class="text-center text-danger"  >Регистрация</h1>
-    <form method="POST" action="/registration_valid" class="form_vhod">
+    <form method="POST" action="/registration_valid" class="form_vhod w-50 block-center" width='50px'>
       @csrf
 
       <div class="mb-3">
@@ -39,7 +39,7 @@
           <p class="p_error "  id="message"> {{$message}} </p>
           @enderror
         </div>
-        <button type="submit" class="btn btn-danger button_auth block-center">Зарегистрироваться</button>
+        <button type="submit" class="btn btn-danger button_auth block-center w-50">Зарегистрироваться</button>
       </form>
     </div>
     <script>
