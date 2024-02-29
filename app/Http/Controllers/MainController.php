@@ -71,5 +71,26 @@ class MainController extends Controller
       public function personalcub () {
         return view('personalcub');
       }
+      public function addUsers(Request $request) {
+        $request->validate(
+            [
+                "name" => "required" ,
+                "email" => "required" ,
+                "password_old" => "unique:users,password|required" . Auth::user()->id,
+                "password" => "required"
+            ],
+            [
+                "name.required" => "Это поле не должно быть пустым!",
+                "email.required" => "Это поле не должно быть пустым !",
+                "password_old.unique" => "Неверно указали старый пароль!",
+                "password_old.required" => "Неверно указали старый пароль!",
+                "password.required" => "Неверно указали старый пароль!",
+           
+     
+            ]
+        );
+        $infoUser=$request->all();
+        
+      }
     }
 

@@ -7,19 +7,19 @@
       <form>
         <div class="form-group">
           <label for="username">Имя пользователя:</label>
-          <input name="name" type="text" class="form-control"  value="{{Auth::user()->username}}">
+          <input name="name" type="text" class="form-control text-danger"  value="{{Auth::user()->username}}">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 10px;">
           <label for="email">Email:</label>
-          <input name="email" type="email" class="form-control"  value="{{Auth::user()->email}}">
+          <input name="email" type="email" class="form-control text-danger"  value="{{Auth::user()->email}}">
         </div>
-        <div class="form-group">
-          <label for="email">Пароль:</label>
-          <input name="password" type="text" class="form-control"  value="{{Auth::user()->password}}">
+        <div class="form-group" style="margin-top: 10px;">
+          <label for="email">Введите свой пароль для проверки:</label>
+          <input name="password_old" type="password" class="form-control text-danger"  value="">
         </div>
-        <div class="form-group">
-          <label for="email">Повторите пароль:</label>
-          <input name="password" type="password" class="form-control"  placeholder="Введите ваш email">
+        <div class="form-group" style="margin-top: 10px;">
+          <label for="email">Введите новый пароль</label>
+          <input name="password" type="password" class="form-control text-danger"  >
         </div>
         <button type="submit" class="btn btn-danger" style="margin-top: 20px;">Сохранить изменения</button>
       </form>
