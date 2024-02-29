@@ -15,7 +15,7 @@
     </thead>
     <tbody>
          @foreach ($user as $users)
-      <tr>
+      <tr>  
         <td style="padding-top: 14px;">{{$users->username}}</td>
         <td style="padding-top: 14px;">{{$users->email}}</td>
         @if ($users->is_blocked == 0)

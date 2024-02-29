@@ -14,29 +14,23 @@
                 </div>
                 </a>
                 @endforeach
-            
-                <!-- Добавьте другие новости по аналогии -->
-
-                <!-- Пагинация -->
                 <nav aria-label="Навигация по страницам" style="margin-top: 20px;">
                 {{ $news->withQueryString()->links('pagination::bootstrap-5') }}
                 </nav>
             </div>
-
             <div class="col-md-4">
-                <h2>Популярные новости</h2>
-                <!-- Список популярных новостей -->
+                <h2 class="text-warning">Популярные новости</h2>
                 <div class="list-group">
-                   
-                    <!-- Добавьте другие популярные новости по аналогии -->
+                   @foreach ($newsLike as $newL)
+                   <a href="/{{$newL->id}}/news" class="list-group-item list-group-item-action">{{$newL->title}}</a>
+                   @endforeach
                 </div>
-
                 <h2 class="mt-4">Категории новостей</h2>
-                <!-- Фильтр по категориям -->
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Политика</a>
-                    <a href="#" class="list-group-item list-group-item-action">Экономика</a>
-                    <!-- Добавьте другие категории по аналогии -->
+                <a href="{{ route('index', ['sort_order' => '0']) }}" class="list-group-item list-group-item-action">Все категории</a>
+                    @foreach ($categoria as $categorias)
+                    <a href="{{ route('index', ['sort_order' => $categorias->id ]) }}" class="list-group-item list-group-item-action">{{$categorias->name}}</a>
+                    @endforeach
                 </div>
             </div>
         </div>

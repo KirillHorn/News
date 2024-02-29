@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Like;
 
 class News extends Model
 {
@@ -27,13 +28,6 @@ class News extends Model
     {
         return $this->likePost->count();
     }
-    public static function getVideosOrderByLikes()
-    {
-        return self::withCount('likePost')
-            ->orderByDesc('likesCount_count')
-            ->get();
-    }
-
     public function commentPost() {
         return $this->hasMany(Comment::class, 'news_id','id');
     }

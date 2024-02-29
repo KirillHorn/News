@@ -24,7 +24,7 @@
 
     <div class="col-md-3 text-end">
       @if (Auth::user()->role == 1)
-      <a href="/personalVideo" class="btn btn-outline-danger me-2 button_reg">Личный кабинет</a>
+      <a href="/personalcub" class="btn btn-outline-danger me-2 button_reg">Личный кабинет</a>
       @else
       <a href="/admin/index" class="btn btn-outline-danger me-2 button_reg">Админ панель</a>
       @endif

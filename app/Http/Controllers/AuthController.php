@@ -74,7 +74,6 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте Почту или пароль!');
         }
     }
-
     public function signout()
     {
         Session::flush();

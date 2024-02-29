@@ -48,4 +48,7 @@ class User extends Authenticatable
     public function like() {
         return $this->HasMany(Like::class, 'user_id','id');
     }
+    public function role() {
+        return $this->belongsTo(Role::class,'role');
+    }
 }

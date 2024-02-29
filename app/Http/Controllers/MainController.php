@@ -8,21 +8,27 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\News;
 use App\Models\Like;
+use App\Models\Categorie;
 use Carbon\Carbon;
 class MainController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
+        $sortOrder = $request->get('sort_order');
+        if ($sortOrder == 0) {
         $news=News::where('is_blocked', false)->paginate(6);
-        // $newsLike=  News::where('is_blocked', false)
-        // ->withCount('likePost')
-        // ->orderByDesc('likesCount_count')
-        // ->get();
-        return view('index',compact('news'));
+        } else {
+            $news=News::where('is_blocked', false)->where('category_id',$sortOrder)->paginate(6);    
+        }
+        $categoria=Categorie::all();
+        $newsLike= News::where('is_blocked', false)
+        ->withCount('likePost')
+        ->orderByDesc('like_post_count')
+        ->take(3)->get();
+        return view('index',compact('news'),['newsLike' => $newsLike, 'categoria' => $categoria]);
     }
     public function news($id) {
         $news=News::find($id);
         $comment=Comment::where('news_id',$id)->get();
-
         return view('news',['new' => $news,'comment'=> $comment]);
     }
     public function like_add($id)
@@ -62,6 +68,8 @@ class MainController extends Controller
               return redirect()->back()->with("ErrorComment", "Ошибка добавление");
           }
       }
-
+      public function personalcub () {
+        return view('personalcub');
+      }
     }
 
