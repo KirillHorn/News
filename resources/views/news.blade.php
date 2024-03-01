@@ -20,8 +20,13 @@
       </div>
       @endauth
    <hr class="text-danger" style="border:2px solid; width:1300px;" >
+   @guest
+   <div id="comments-container">
+     <p class="text-danger"><a href="/auth" class="text-decoration-none text-danger" style="font-weight: 700" >Авторизуйтесь</a> чтобы оставить комментарий</p>
 
-   
+   </div>
+   @endguest
+   @auth
       <div id="comment-form" class="mt-3">
         <h4 class="text-danger">Добавить комментарий</h5>
         <form method="POST" action="/{{$new->id}}/commentAdd">
@@ -33,8 +38,9 @@
           <button style="margin-top:10px;" class="btn btn-danger" onclick="addComment()">Отправить комментарий</button>
         </form>
       </div>
-
+      @endauth
       <h4>Комментарии</h4>
+
       <div id="comments-container " >
         @foreach ($comment as $comments)
 
@@ -44,11 +50,13 @@
                     <p>{{$comments->comment_text}}</p>
                     <p style="font-size:14px;">{{$comments->comment_date}}</p>
         </div>
-           
+
         </div>
         @endforeach
       </div>
-    
+
+
+
     </div>
   </div>
 </div>

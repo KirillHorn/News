@@ -19,6 +19,7 @@ Route::middleware('CheckRole:Пользователь')->group(function () {
 Route::get('/{id}/like_add', [MainController::class, 'like_add']);
 Route::post('/{id}/commentAdd', [MainController::class, 'commentAdd']);
 Route::get('/personalcub', [MainController::class, 'personalcub']);
+Route::post('/addUsers', [MainController::class, 'addUsers']);
 
 });
 

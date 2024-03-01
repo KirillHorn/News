@@ -15,6 +15,6 @@ class Like extends Model
     ];
 
     public function newsPost() {
-        return $this->hasMany(News::class, 'news_id','id');
+        return $this->belongsTo(News::class, 'news_id','id');
     }
 }
