@@ -82,18 +82,24 @@ class MainController extends Controller
       public function addUsers(Request $request) {
         $request->validate(
             [
-                "name" => "required|" ,
+                "name" => "alpha_dash|required|regex:/[А-Яа-яЁё]/u" ,
                 "email" => "required|email|unique:users,email," . Auth::user()->id,
-                "password_old" => "required",
-                "password" => "required",
+                "password_old" => "required|min:6|max:30",
+                "password" => "required|min:6|max:30",
             ],
             [
                 "name.required" => "Это поле не должно быть пустым!",
+                "name.alpha_dash" => "Имя должно состоять только из букв!",
+                "name.regex" => "Только кириллица",
                 "email.required" => "Это поле не должно быть пустым !",
                 "email.email" => "Неправильный формат email!",
                 "email.unique" => "Пользователь с таким адресом электронной почты уже существует!",
-                "password_old.unique" => "Поле 'Старый пароль' обязательно при наличии нового пароля!",
-                "password.required" => "Неверно указали старый пароль!",
+                "password_old.required" => "Поле 'password_old' обязательно для заполнения.",
+                "password_old.min" => "Поле 'password_old' должно содержать не менее :min символов.",
+                "password_old.max" => "Поле 'password_old' должно содержать не более :max символов.",
+                "password.required" => "Поле 'password' обязательно для заполнения.",
+                "password.min" => "Поле 'password' должно содержать не менее :min символов.",
+                "password.max" => "Поле 'password' должно содержать не более :max символов.",
             ]
         );
         $infoUser=$request->all();

@@ -22,15 +22,21 @@ class AuthController extends Controller
     public function registration_valid(Request $request)
     {
         $request->validate([
-            "username" => "required|unique:users",
+            "username" => "required|regex:/[А-Яа-яЁё]/u|alpha_dash",
             "email" => "required|unique:users|email",
-            "password" => "required",
-            "password_reset" => "required|same:password",
+            "password" => "required|min:6|max:30",
+            "password_reset" => "required|same:password|min:6|max:30",
         ], [
             "username.required" => "Поле обязательно для заполнения",
+            "username.alpha_dash" => "Имя должно состоять только из букв!",
+            "username.regex" => "Только кириллица",
             "email.required" => "Поле обязательно для заполнения",
-            "password.required" => "Поле обязательно для заполнения",
+            "password.required" => "Поле 'password' обязательно для заполнения.",
+            "password.min" => "Поле 'password' должно содержать не менее 6 символов.",
+            "password.max" => "Поле 'password' должно содержать не более 30 символов.",
             "password_reset.required" => "Поле обязательно для заполнения",
+            "password_reset.min" => "Поле 'password' должно содержать не менее 6 символов.",
+            "password_reset.max" => "Поле 'password' должно содержать не более 30 символов.",
             "email.unique" => "Данная почта уже занят",
             "email.email" => "Неверный формат электронной почты",
             "password_reset.same" => "Пароли не совпадают",

@@ -22,11 +22,12 @@ class NewsController extends Controller
     public function addNews_validate(Request $request) {
         $request->validate([
             "title" => "required",
-            "content" => "required",
+            "content" => "required|max:500",
             "category_id" => "required",
         ],[
             "title.required" => "Поле обязательно для заполнения",
             "content.required" => "Поле обязательно для заполнения",
+            "content.max" => "Максимальная длина 500",
             "category_id.required" => "Поле обязательно для заполнения",
         ]);
         $infoNews= $request->all();
@@ -52,11 +53,12 @@ class NewsController extends Controller
     public function editingNews_validate(Request $request,News $id) {
         $request->validate([
             "title" => "required",
-            "content" => "required",
+            "content" => "required|max:500",
             "category_id" => "required",
         ],[
             "title.required" => "Поле обязательно для заполнения",
             "content.required" => "Поле обязательно для заполнения",
+            "content.max" => "Максимальная длина 500",
             "category_id.required" => "Поле обязательно для заполнения",
         ]);
         $infoNews= $request->all();
