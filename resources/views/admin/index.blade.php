@@ -22,7 +22,7 @@
         <td style="padding-top: 14px;">{{$new->categorieNews->name}}</td>
         <td style="padding-top: 14px;">{{$new->publish_date}}</td>
         @if ($new->is_blocked == 0)
-        <td style="padding-top: 14px;" class="text-info-emphasis">Разблокирована</td>
+        <td style="padding-top: 14px;" class="text-info-emphasis">Доступно</td>
         @else 
         <td style="padding-top: 14px;" class="text-danger">Заблокирована</td>
         @endif

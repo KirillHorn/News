@@ -2,5 +2,4 @@
     <a href="/admin/index" class="text-decoration-none text-danger">Все новости</a>
     <a href="/admin/addNews" class="text-decoration-none text-danger">Добавить новость</a>
     <a href="/admin/usersAll" class="text-decoration-none text-danger">Все пользователи</a>
-
 </div>

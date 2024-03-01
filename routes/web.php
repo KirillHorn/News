@@ -21,6 +21,7 @@ Route::post('/{id}/commentAdd', [MainController::class, 'commentAdd']);
 Route::get('/personalcub', [MainController::class, 'personalcub']);
 Route::post('/addUsers', [MainController::class, 'addUsers']);
 
+
 });
 
 Route::middleware('CheckRole:Администратор')->group(function () {

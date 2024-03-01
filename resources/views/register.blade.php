@@ -1,4 +1,3 @@
-
     <x-header/>
     <x-error/>
     <h1 class="text-center text-danger"  >Регистрация</h1>
@@ -19,7 +18,6 @@
           <p class="p_error "  id="message"> {{$message}} </p>
           @enderror
         </div>
-
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label text-danger-emphasis">Пароль</label>
           <input type="password" name="password" class="form-control text-danger" id="exampleInputPassword1">
