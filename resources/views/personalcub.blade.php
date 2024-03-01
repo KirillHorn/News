@@ -1,4 +1,5 @@
 <x-header />
+<x-error/>
 <section>
 <div class="container mt-5">
   <div class="row">

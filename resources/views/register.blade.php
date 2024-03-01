@@ -1,11 +1,6 @@
 
     <x-header/>
-    <div class="container">
-    @if (session("error"))
-    <div  id="message"  class="message">
-    {{session("error")}}
-    </div>
-    @endif
+    <x-error/>
     <h1 class="text-center text-danger"  >Регистрация</h1>
     <form method="POST" action="/registration_valid" class="form_vhod w-50 block-center" width='50px'>
       @csrf

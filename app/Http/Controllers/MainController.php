@@ -114,8 +114,11 @@ class MainController extends Controller
             'password' => Hash::make($infoUser['password']),
         ]);
         $author->save();
-    }
         return redirect()->back()->with('success','Редактирование прошло успешно!');
+    } else {
+        return redirect()->back()->with('error','Неверно введен старый пароль!');
+    }
+
       }
     }
 

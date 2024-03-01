@@ -1,10 +1,5 @@
  <x-header />
-
- @if (session('error'))
-     <div id="message" class="message">
-         {{ session('error') }}
-
-         @endif
+<x-error/>
 
      </div>
      <div class="container">

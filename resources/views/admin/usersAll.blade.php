@@ -1,5 +1,5 @@
 <x-header/>
-
+<x-error/>
 <div class="container mt-5 d-flex gap-5">
 <x-admin/>
 <div>
