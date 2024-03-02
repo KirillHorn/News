@@ -17,7 +17,7 @@ class MainController extends Controller
     public function index(Request $request) {
         $sortOrder = $request->get('sort_order');
         if ($sortOrder == 0) {
-        $news=News::where('is_blocked', false)->paginate(6);
+        $news=News::where('is_blocked', false)->orderByDesc('created_at')->paginate(6);
         } else {
             $news=News::where('is_blocked', false)->where('category_id',$sortOrder)->paginate(6);
         }
@@ -52,7 +52,7 @@ class MainController extends Controller
     }
       }
 
-      public function commentAdd(Request $request, $id)
+      public function commentAdd(Request $request,  $id)
       {
           $comment = $request->all();
           $author = Auth::user()->id;
@@ -60,7 +60,7 @@ class MainController extends Controller
           $addComment = Comment::create([
               "comment_text" => $comment["comment_text"],
               "comment_date" => $date_Carbon,
-              "news_id" => $id,
+              "news_id" => (int)$id,
               "user_id" => $author,
           ]);
 

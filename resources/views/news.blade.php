@@ -32,7 +32,7 @@
         <span id="like-count">{{$new->likesCount()}}</span> лайк
       </div>
       @endif
-    
+
       @endauth
       <hr class="text-danger" style="border:2px solid; width:1300px;">
       @guest

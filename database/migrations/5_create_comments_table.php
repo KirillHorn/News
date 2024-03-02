@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('comment_text');
             $table->dateTime('comment_date');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('news_id')->references('id')->on('users');
+            $table->foreignId('news_id')->references('id')->on('news');
             $table->timestamps();
         });
     }

@@ -12,8 +12,8 @@ class Comment extends Model
     protected $fillable = [
         'comment_text',
         'comment_date',
-        'user_id',
         'news_id',
+        'user_id',
     ];
 
     public function news() {
