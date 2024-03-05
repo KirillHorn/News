@@ -31,4 +31,8 @@ class News extends Model
     public function commentPost() {
         return $this->hasMany(Comment::class, 'news_id','id');
     }
+    public function news()
+{
+    return $this->hasMany(News::class);
+}
 }

@@ -11,7 +11,9 @@ Route::get('register', [AuthController::class, 'registration_view']);
 Route::get('auth', [AuthController::class, 'auth_view']);
 Route::post('registration_valid', [AuthController::class, 'registration_valid']);
 Route::post('auth_valid', [AuthController::class, 'auth_valid']);
-Route::get('/{id}/news', [MainController::class, 'news']);
+
+Route::get('/{id}/news', [MainController::class, 'news'])->middleware('CheckPost');
+
 Route::get('signout', [AuthController::class, 'signout']);
 
 Route::middleware('CheckRole:Пользователь')->group(function () {

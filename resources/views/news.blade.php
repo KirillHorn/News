@@ -13,12 +13,15 @@
         <span id="like-count">{{$new->likesCount()}}</span> лайков
       </div>
       @endguest
+      
+      @auth
       @if (Auth::user()->role == 2)
       <div id="likes" class="mt-3">
         <a href="" class="btn btn-outline-success" onclick="like()">Лайк</a>
         <span id="like-count">{{$new->likesCount()}}</span> лайков
       </div>
       @endif
+      @endauth
 
       @auth
       @if (Auth::user()->role == 1 && Auth::user()->is_blocked == 0)
